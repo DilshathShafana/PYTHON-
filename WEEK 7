@@ -1,0 +1,55 @@
+#Write a program to eliminate the common elements in the given 2 arrays and print only the non-repeating elements and the total number of such non-repeating elements.
+def eliminate_common_elements():
+    sizes = input().split()
+    size1 = int(sizes[0])
+    size2 = int(sizes[1])
+    array1 = list(map(int, input().split()))
+    array2 = list(map(int, input().split()))
+    set1 = set(array1)
+    set2 = set(array2)
+    unique_in_set1 = set1 - set2
+    unique_in_set2 = set2 - set1
+    unique_elements = list(unique_in_set1.union(unique_in_set2))
+    unique_elements.sort()
+    print(" ".join(map(str, unique_elements)))
+    print(len(unique_elements))
+eliminate_common_elements()
+
+#Given a tuple and a positive integer k, the task is to find the count of distinct pairs in the tuple whose sum is equal to K.
+def count_distinct_pairs_with_sum():
+    t_input = input()
+    t = tuple(map(int, t_input.replace(',', ' ').split()))
+    K = int(input())
+    
+    seen = set()
+    pairs = set()
+    
+    for num in t:
+        complement = K - num
+        if complement in seen:
+            pairs.add(tuple(sorted((num, complement))))
+        seen.add(num)
+    print(len(pairs))
+count_distinct_pairs_with_sum()
+
+#Coders here is a simple task for you, Given string str. Your task is to check whether it is a binary string or not by using python set.
+def is_binary_string():
+    input_str = input()
+    char_set = set(input_str)
+    if char_set.issubset({'0', '1'}):
+        print("Yes")
+    else:
+        print("No")
+is_binary_string()
+
+#Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.There is only one repeated number in nums, return this repeated number. Solve the problem using set
+def find_duplicate(nums):
+    seen = set()
+    for num in nums:
+        if num in seen:
+            return num
+        seen.add(num)
+nums_input = input()
+nums = list(map(int, nums_input.split()))
+duplicate_number = find_duplicate(nums)
+print(duplicate_number)
