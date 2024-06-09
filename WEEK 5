@@ -1,0 +1,104 @@
+#Given two Strings s1 and s2, remove all the characters from s1 which is present in s2.
+s1 = input().strip()   
+s2 = input().strip()   
+
+result = ''.join(char for char in s1 if char not in s2)
+# Output
+print(result)
+
+#In this exercise, you will create a program that reads words from the user until the user enters a blank line. After the user enters a blank line your program should display each word entered by the user exactly once. The words should be displayed in the same order that they were first entered. For example, if the user enters:
+a=0
+l=[]
+while a!=" ":
+    a=input() 
+    if a not in l:
+        l.append(a)
+   
+while True:
+    print(*l, sep = "\n")
+    break
+
+#Write a program to check if two strings are balanced. For example, strings s1 and s2 are balanced if all the characters in the s1 are present in s2. The character’s position doesn’t matter. If balanced display as "true" ,otherwise "false".
+a=input()
+b=input()
+for x in a:
+    if a in b:
+        print("True")
+        break
+    else:
+        print('False')
+        break
+
+#Two string values S1, S2 are passed as the input. The program must print first N characters present in S1 which are also present in S2.
+S1 = input().strip()   
+S2 = input().strip()   
+N = int(input())       
+
+common_characters = [char for char in S1 if char in S2]
+
+unique_common_characters = []
+for char in common_characters:
+    if char not in unique_common_characters:
+        unique_common_characters.append(char)
+
+print("".join(unique_common_characters[:N]))
+
+#Write a python to read a sentence and print its longest word and its length
+find= input()
+words = find.split()
+lon = max(words, key=len)
+print(lon)
+print(len(lon))
+
+ 
+#Find if a String2 is substring of String1. If it is, return the index of the first occurrence. else return -1
+string1 = input().strip()  
+string2 = input().strip()  
+index = string1.find(string2)
+print(index if index != -1 else -1)
+
+#Given a string S, which contains several words, print the count C of the words whose length is atleast L. (You can include punctuation marks like comma, full stop also as part of the word length. Space alone must be ignored)
+S = input().strip()   
+L = int(input())      
+
+words = S.split()
+
+count = sum(1 for word in words if len(word) >= L)
+
+print(count)
+
+#Write a program that takes as input a string (sentence), and returns its second word in uppercase.
+x= input()
+N=3
+if len(x)>10:
+    m=x.split()[N-2]
+    print(m.upper())
+elif len(x)<=10:
+    prin(" ")
+
+#Write a python program to count all letters, digits, and special symbols respectively from a given string
+st= input()
+x= 0
+y=0
+z=0
+for i in range(0, len(st)):
+    #while(st!=' '):
+        if st[i].isalpha():
+            x=x+1
+        elif st[i].isdigit():
+            y=y+1
+        else:
+            z=z+1
+
+print(x)
+print(y)
+print(z)
+
+#Consider the below words as key words and check the given input is key word or not.x= input()
+l=['break', 'case', 'continue', 'default', 'defer', 'else', 'for', 'func', 'goto', 'if', 'map', 'range', 'return', 'struct', 'type', 'var']
+if x in l:
+    print(x+ " is a keyword")
+else:
+    print(x+ " is not a keyword")
+
+
