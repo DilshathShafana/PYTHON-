@@ -1,0 +1,138 @@
+#Write a program to find the eligibility of admission for a professional course based on the following criteria:Marks in Maths >= 65Marks in Physics >= 55,Marks in Chemistry >= 50,Or,Total in all three subjects >= 180
+maths = input()
+physics = input()
+chemistry = input()
+m =int(maths)
+c= int(chemistry)
+p= int(physics)
+
+if m>=65 and p>=55 and c>=50:
+    print("The candidate is eligible")
+elif m+c+p>=180:
+    print("The candidate is eligible")
+else:
+    print("The candidate is not eligible")
+
+#In this exercise you will create a program that reads a letter of the alphabet from the user. If the user enters a, e, i, o or u then your program should display a message indicating that the entered letter is a vowel. If the user enters y then your program should display a message indicating that sometimes y is a vowel, and sometimes y is a consonant. Otherwise your program should display a message indicating that the letter is a consonant.
+x = input()
+if x == 'a' or x== 'e' or x=='i' or x=='o' or x=='u':
+    print("It's a vowel.")
+elif x == 'y':
+    print("Sometimes it's a vowel... Sometimes it's a consonant.")
+else:
+    print("It's a consonant.")
+
+#Most years have 365 days. However, the time required for the Earth to orbit the Sun is actually slightly more than that. As a result, an extra day, February 29, is included in some years to correct for this difference. Such years are referred to as leap years. The rules for determining whether or not a year is a leap year follow:
+year = input()
+y = int(year)
+if y%400 == 0 :
+    print(str(y) + " is a leap year.")
+elif y%100 ==0:
+     print(str(y)+ " is not a leap year.")
+elif y%4 ==0:
+     print(str(y)+ " is a leap year.")
+else:
+     print(str(y)+ " is not a leap year.")
+
+#The Chinese zodiac assigns animals to years in a 12 year cycle. One 12 year cycle is shown in the table below. The pattern repeats from there, with 2012 being another year of the dragon, and 1999 being another year of the hare.
+def an(year):
+    animals = [
+        "Dragon", "Snake", "Horse", "Sheep", "Monkey", 
+        "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", "Hare"
+    ]
+    base = 2000
+    offset = (year - base) % 12
+    animal = animals[offset]
+    return animal
+year = int(input("Enter a year: "))
+animal = an(year)
+print(f"{year} is the year of the {animal}.")
+
+
+#Write a program that reads the lengths of the three sides of a triangle from the user. Then display a message that states the triangle’s type.
+s1 = input()
+s2 = input()
+s3 = input()
+if int(s1)==int(s2)==int(s3):
+    print("That's a equilateral triangle")
+elif int(s1)==int(s2)!=int(s3):
+    print("That's a isosceles triangle")
+else:
+    print("That's a scalene triangle")
+
+#The length of a month varies from 28 to 31 days. In this exercise you will create a program that reads the name of a month from the user as a string. Then your program should display the number of days in that month. Display “28 or 29 days” for February so that leap years are addressed.
+
+m = input()
+if m == 'January':
+    print(m+ " has 31 days")
+elif m=='February':
+    print(m+ " has 28 or 29 days in it.")
+elif m=='March':
+    print(m+ " has 31 days in it.")
+elif m=='April':
+    print(m+ " has 30 days in it.")
+elif m=='May':
+    print(m+ " has 31 days in it.")
+else:
+    print(m+ " has 30 days in it.")
+
+
+#You are given three integers, a, b, and c. They need not be given in increasing order. If they form a Pythagorean triple, then print "yes", otherwise, print "no"
+x= int(input())
+y= int(input())
+z= int(input())
+sor_nums= sorted([x,y,z])
+if sor_nums[0]**2+ sor_nums[1]**2==sor_nums[2]**2:
+    print("yes")
+else:
+    print('no')
+
+#Write a program to calculate and print the Electricity bill where the unit consumed by the user is given from test case. It prints the total amount the customer has to pay.
+#The charge are as follows: 
+#
+#Unit                                   Charge / Unit
+#Upto 199                               @1.20
+#200 and above but less than 400        @1.50
+#400 and above but less than 600        @1.80
+#600 and above                          @2.00.If bill exceeds Rs.400 then a surcharge of 15% will be charged and the minimum bill should be of Rs.100/
+
+def calculate_electricity_bill(units):
+    if units <= 199:
+        charge_per_unit = 1.20
+    elif units >= 200 and units < 400:
+        charge_per_unit = 1.50
+    elif units >= 400 and units < 600:
+        charge_per_unit = 1.80
+    else:  
+        charge_per_unit = 2.00
+    total_bill = units * charge_per_unit
+    if total_bill > 400:
+        total_bill += total_bill * 0.15
+    if total_bill < 100:
+        total_bill = 100.00
+    return round(total_bill, 2)
+
+units = int(input())
+bill_amount = calculate_electricity_bill(units)
+print(f"{bill_amount:.2f}")
+
+#Ms. Sita, the faculty handling programming lab for you is very strict. Your seniors have told you that she will not allow you to enter the week's lab if you have not completed atleast half the number of problems given last week. Many of you didn't understand this statement and so they requested the good programmers from your batch to write a program to find whether a student will be allowed into a week's lab given the number of problems given last week and the number of problems solved by the student in that week.
+g = input()
+s =input()
+
+c = int(g)/2
+ 
+if int(s)>=int(c):
+    print("IN")
+else:
+    print("OUT")
+
+#Write a program that returns the second last digit of the given number. Second last digit is being referred 10the digit in the tens place in the given number.
+n= int(input())
+num= str(n)
+if len(num)>=2:
+    seclas = int(num[-2])
+    print(seclas)
+else:
+    print("-1")
+
