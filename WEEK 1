@@ -1,1 +1,8 @@
+n=input()
+m=input()
+x=int(n)
+y=float(m)
+m=round(y,1)
+print(n,type(x),sep=",")
+print(m,type(y),sep=",")
 
