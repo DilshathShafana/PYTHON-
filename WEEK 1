@@ -1,3 +1,4 @@
+#Write a program to convert strings to an integer and float and display its type.  
 n=input()
 m=input()
 x=int(n)
@@ -5,4 +6,42 @@ y=float(m)
 m=round(y,1)
 print(n,type(x),sep=",")
 print(m,type(y),sep=",")
+
+#Ramesh’s basic salary is input through the keyboard. His dearness allowance is 40% of his basic salary, and his house rent allowance is 20% of his basic salary. Write a program to calculate his gross salary.
+bas_sal=int(input())
+a=(40/100)*bas_sal
+d=int(a)
+b=(20/100)*bas_sal
+hr=int(b)
+gross = bas_sal + d +hr
+print(int(gross))
+
+#Write a simple python program to find the square root of a given floating point number. The output should be displayed with 3 decimal places.
+a = input()
+sq = float(a) **0.5
+#a=round(sq,3)
+print("%0.3f"%sq)
+
+#Alfred buys an old scooter for Rs. X and spends Rs. Y on its repairs. If he sells the scooter for Rs. Z (Z>X+Y). Write a program to help Alfred to find his gain percent. Get all the above-mentioned values through the keyboard and find the gain percent.
+a=float(input())
+b=float(input())
+c=float(input())
+gain=c-(a+b)
+t= a+b
+per = (gain/t)*100
+print("%.2f"%per,"is the gain percent.")
+
+#In many jurisdictions, a small deposit is added to drink containers to encourage people to recycle them. In one particular jurisdiction, drink containers holding one liter or less have a $0.10 deposit and drink containers holding more than one liter have a $0.25 deposit. Write a program that reads the number of containers of each size(less and more)  from the user. Your program should continue by computing and displaying the refund that will be received for returning those containers. Format the output so that it includes a dollar sign and always displays exactly two decimal places.
+less= int(input())
+great= int(input())
+
+a= less*0.10
+b= great*0.25
+c= a+b
+print("Your total refund will be $%0.2f"%c,end=".")
+
+
+
+
+
 
