@@ -1,73 +1,22 @@
-#An list contains N numbers and you want to determine whether two of the numbers sum to a given number K. For example, if the input is 8, 4, 1, 6 and K is 10, the answer is yes (4 and 6). A number may be used twice.
-def check_pair_sum():
-    
-    n = int(input().strip())
-    numbers = list(map(int, input().strip().split()))
-    k = int(input().strip())
-    
-    seen = set()
-    
-    for number in numbers:
-       
-        if (k - number) in seen:
-            print("Yes")
-            return
-        
-        seen.add(number)
-    
-    print("No")
-check_pair_sum()
-
-#To find the frequency of numbers in a list and display in sorted order.
-def count_frequencies():
-    
-    arr = list(map(int, input().strip().split()))
-    
-   
-    frequency = {}
-    
-   
-    for num in arr:
-        if num in frequency:
-            frequency[num] += 1
-        else:
-            frequency[num] = 1
-    
-    
-    sorted_keys = sorted(frequency.keys())
-    for key in sorted_keys:
-        print(key, frequency[key])
-count_frequencies()
-
-#Given an listof integers, sort the array in ascending order using the Bubble Sort algorithm above.
-def bubble_sort(arr):
-    n = len(arr)
-    num_swaps = 0
-    for i in range(n):
-        
-        swapped = False
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-                num_swaps += 1
-                swapped = True
-        if not swapped:
-            break
-    return arr, num_swaps
-
+#Write a Python program that performs division and modulo operations on two numbers provided by the user. Handle division by zero and non-numeric inputs.
 def main():
-    n = int(input().strip())
-    arr = list(map(int, input().strip().split()))
+    try:
+        num1 = float(input())
+        num2 = float(input())
+        division_result = num1 / num2
+        modulo_result = int(num1 % num2)
+        print(f"Division result: {division_result}")
+        print(f"Modulo result: {modulo_result}")
     
+    except ValueError:
+        print("Error: Non-numeric input provided.")
     
-    sorted_arr, num_swaps = bubble_sort(arr)
+    except ZeroDivisionError:
+        print("Error: Cannot divide or modulo by zero.")
+if __name__ == "__main__":
+    main()
+    
 
-    print(f"List is sorted in {num_swaps} swaps.")
-    print(f"First Element: {sorted_arr[0]}")
-    print(f"Last Element: {sorted_arr[-1]}")
-
-main()
 
 #Develop a Python program that safely calculates the square root of a number provided by the user. Handle exceptions for negative inputs and non-numeric inputs.
 import math
