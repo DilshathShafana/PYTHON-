@@ -1,0 +1,16 @@
+#given an n integer, find if it is a perfect square after adding 1 to it.
+import math
+def square(x):
+    root = int(math.isqrt(x))
+    return root * root == x
+def main():
+    n = int(input())
+    n_plus_1 = n + 1
+    if square(n_plus_1):
+        print(f"{n_plus_1} is a perfect square.")
+    else:
+        print(f"{n_plus_1} is not a perfect square.")
+if __name__ == "__main__":
+    main()
+
+#
