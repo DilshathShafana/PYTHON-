@@ -1,0 +1,47 @@
+#Raghu owns a shoe shop with a varying inventory of shoe sizes. The shop caters to multiple customers who have specific size requirements and are willing to pay a designated amount for their desired shoe size. Raghu needs an efficient system to manage his inventory and calculate the total revenue generated from sales based on customer demands.
+def process_transactions(inventory, transactions):
+    total_revenue = 0
+    
+    for size, price in transactions:
+        if size in inventory and inventory[size] > 0:
+            total_revenue += price
+            inventory[size] -= 1
+    return total_revenue
+total_shoes = int(input())
+shoe_sizes = list(map(int, input().split()))
+num_transactions = int(input())
+inventory = {size: 0 for size in shoe_sizes}
+
+for size in shoe_sizes:
+    inventory[size] += 1
+
+transactions = [tuple(map(int, input().split())) for _ in range(num_transactions)]
+
+total_revenue = process_transactions(inventory, transactions)
+print(total_revenue)
+
+#Develop a Python program that reads a series of book titles and their corresponding genres from user input, categorizes the books by genre using a dictionary, and outputs the list of books under each genre in a formatted manner.
+
+def categorize_books(book_list):
+    genres = {}
+    for book in book_list:
+        title, genre = book.split(", ")
+        if genre in genres:
+            genres[genre].append(title)
+        else:
+            genres[genre] = [title]
+    return genres
+book_entries = []
+try:
+    while True:
+        entry = input().strip()
+        if not entry:
+            break
+        book_entries.append(entry)
+except EOFError:
+    pass
+categorized_books = categorize_books(book_entries)
+for genre, books in categorized_books.items():
+    print(f"{genre}: {', '.join(books)}")
+
+
