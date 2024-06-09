@@ -1,0 +1,146 @@
+#An list contains N numbers and you want to determine whether two of the numbers sum to a given number K. For example, if the input is 8, 4, 1, 6 and K is 10, the answer is yes (4 and 6). A number may be used twice.
+def check_pair_sum():
+    
+    n = int(input().strip())
+    numbers = list(map(int, input().strip().split()))
+    k = int(input().strip())
+    
+    seen = set()
+    
+    for number in numbers:
+       
+        if (k - number) in seen:
+            print("Yes")
+            return
+        
+        seen.add(number)
+    
+    print("No")
+check_pair_sum()
+
+#To find the frequency of numbers in a list and display in sorted order.
+def count_frequencies():
+    
+    arr = list(map(int, input().strip().split()))
+    
+   
+    frequency = {}
+    
+   
+    for num in arr:
+        if num in frequency:
+            frequency[num] += 1
+        else:
+            frequency[num] = 1
+    
+    
+    sorted_keys = sorted(frequency.keys())
+    for key in sorted_keys:
+        print(key, frequency[key])
+count_frequencies()
+
+#Given an listof integers, sort the array in ascending order using the Bubble Sort algorithm above.
+def bubble_sort(arr):
+    n = len(arr)
+    num_swaps = 0
+    for i in range(n):
+        
+        swapped = False
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                num_swaps += 1
+                swapped = True
+        if not swapped:
+            break
+    return arr, num_swaps
+
+def main():
+    n = int(input().strip())
+    arr = list(map(int, input().strip().split()))
+    
+    
+    sorted_arr, num_swaps = bubble_sort(arr)
+
+    print(f"List is sorted in {num_swaps} swaps.")
+    print(f"First Element: {sorted_arr[0]}")
+    print(f"Last Element: {sorted_arr[-1]}")
+
+main()
+
+#Develop a Python program that safely calculates the square root of a number provided by the user. Handle exceptions for negative inputs and non-numeric inputs.
+import math
+def safe_sqrt(num):
+    try:
+        num = float(num)
+        if num < 0:
+            raise ValueError("Cannot calculate the square root of a negative number.")
+        result = math.sqrt(num)
+        print(f"The square root of {num:.1f} is {result:.2f}")
+    except ValueError as ve:
+        print(f"Error: {ve}")
+    except Exception as e:
+        print(f"Error: {e}")
+
+num = input()
+safe_sqrt(num)
+
+#Write a Python program that asks the user for their age and prints a message based on the age. Ensure that the program handles cases where the input is not a valid integer.
+def get_age():
+    user_input = input()
+
+    try:
+        age = int(user_input)
+        if age < 0:
+            print("Error: Please enter a valid age.")
+        else:
+            print(f"You are {age} years old.")
+    except ValueError:
+        print("Error: Please enter a valid age.")
+    except EOFError:
+        print("\nError: Please enter a valid age.")
+        
+
+if __name__ == "__main__":
+    get_age()
+
+#Write a Python script that asks the user to enter a number within a specified range (e.g., 1 to 100). Handle exceptions for invalid inputs and out-of-range numbers.
+def validate_input():
+    while True:
+        try:
+            user_input = input()
+            if not user_input:
+                raise EOFError()
+            user_input = int(user_input)
+            if user_input < 1 or user_input > 100:
+                raise ValueError()
+            print("Valid input.")
+            break 
+        except EOFError as eof:
+            print(f"Error: {eof}")
+            break 
+        except ValueError as ve:
+            print(f"Error: {ve}")
+        except Exception as e:
+            print(f"Error: {e}")
+
+validate_input()
+
+#Develop a Python program that safely performs division between two numbers provided by the user. Handle exceptions like division by zero and non-numeric inputs
+def safe_division():
+    try:
+        num1 = float(input())
+        num2 = float(input())
+        
+        result = num1 / num2
+        print(result)
+    except ZeroDivisionError:
+        print("Error: Cannot divide or modulo by zero.")
+    except ValueError:
+        print("Error: Non-numeric input provided.")
+    except Exception as e:
+        print("Error:", e)
+safe_division()
+
+
