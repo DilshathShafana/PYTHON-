@@ -1,0 +1,49 @@
+#Program to print all the distinct elements in an array.
+n = int(input())
+arr = [int(input()) for _ in range(n)]
+distinct_elements = set(arr)
+print(" ".join(map(str, distinct_elements)))
+
+#We want to find an index mapping P, from A to B. 
+# Input
+n = int(input())
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+
+indices = {}
+for i, num in enumerate(B):
+    indices[num] = i
+
+P = [indices[num] for num in A]
+
+
+print(" ".join(map(str, P)))
+
+#Complete the program to count frequency of each element of an array. 
+n = int(input())
+arr = [int(input()) for _ in range(n)]
+
+frequency = {}
+for num in arr:
+    if num in frequency:
+        frequency[num] += 1
+    else:
+        frequency[num] = 1
+
+for num, freq in frequency.items():
+    print(f"{num} occurs {freq} times")
+
+#Determine the factors of a number (i.e., all positive integer values that evenly divide into a number) 
+n = int(input())  
+p = int(input())  
+factors = []
+for i in range(1, int(n**0.5) + 1):
+    if n % i == 0:
+        factors.append(i)
+        if n // i != i:
+            factors.append(n // i)
+factors.sort()
+if p <= len(factors):
+    print(factors[p - 1])
+else:
+    print(0)
