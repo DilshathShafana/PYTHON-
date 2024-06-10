@@ -1,0 +1,82 @@
+#Given two sentences s1 and s2, return a list of all the uncommon words. You may return the answer in any order.
+def S(s1, s2):
+    words1 = s1.split()
+    words2 = s2.split()
+    word_count = {}
+    for word in words1:
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+    for word in words2:
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+    words = []
+    for word in word_count:
+        if word_count[word] == 1:
+            if word in words1 and word not in words2:
+                words.append(word)
+            if word in words2 and word not in words1:
+                words.append(word)
+                
+    return ' '.join(words)
+s1 = input()
+s2 = input()
+print(S(s1, s2))
+
+#Write a program that computes and displays the Scrabble™ score for a word
+def sco(wrd):
+    scrabble_points ={
+        1: ['A', 'E', 'I', 'L', 'N', 'O', 'R', 'S', 'T', 'U'],
+        2: ['D', 'G'],
+        3: ['B', 'C', 'M', 'P'],
+        4: ['F', 'H', 'V', 'W', 'Y'],
+        5: ['K'],
+        8: ['J', 'X'],
+        10: ['Q', 'Z']
+    }
+    points_dict = {letter: points for points, letters in scrabble_points.items() for letter in letters}
+    
+    total_score = sum(points_dict[letter.upper()] for letter in wrd)
+    return total_score
+def main():
+    word = input()
+    score = sco(word)
+    print(f"{word} is worth {score} points.")
+main()
+
+#Given an array of names of candidates in an election
+def vote():
+    n = int(input())
+    votes = []
+    for _ in range(n):
+        v = input().strip()
+        votes.append(v)
+    return votes
+
+def find_winner(votes):
+    vote_count = {}
+    for v in votes:
+        if v in vote_count:
+            vote_count[v] += 1
+        else:
+            vote_count[v] = 1
+    max_votes = 0
+    winner = ""
+    
+    for candidate, count in vote_count.items():
+        if count > max_votes or (count == max_votes and candidate < winner):
+            max_votes = count
+            winner = candidate
+            
+    return winner
+
+def main():
+    votes = vote()
+    winner = find_winner(votes)
+    print(winner)
+
+main()
+
