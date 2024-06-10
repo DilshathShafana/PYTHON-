@@ -1,0 +1,70 @@
+#An list contains N numbers and you want to determine whether two of the numbers sum to a given number K
+def check_pair_sum():
+    
+    n = int(input().strip())
+    numbers = list(map(int, input().strip().split()))
+    k = int(input().strip())
+    
+    seen = set()
+    
+    for number in numbers:
+       
+        if (k - number) in seen:
+            print("Yes")
+            return
+        
+        seen.add(number)
+    
+    print("No")
+check_pair_sum()
+
+#To find the frequency of numbers in a list and display in sorted order.
+def count_frequencies():
+    
+    arr = list(map(int, input().strip().split()))
+    
+   
+    frequency = {}
+    
+   
+    for num in arr:
+        if num in frequency:
+            frequency[num] += 1
+        else:
+            frequency[num] = 1
+    
+    
+    sorted_keys = sorted(frequency.keys())
+    for key in sorted_keys:
+        print(key, frequency[key])
+count_frequencies()
+
+#Given an listof integers, sort the array in ascending order using the Bubble Sort algorithm above.
+def bubble_sort(arr):
+    n = len(arr)
+    numswap = 0
+    for i in range(n):
+        
+        swapped = False
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                numswap += 1
+                swapped = True
+        if not swapped:
+            break
+    return arr, numswap
+
+def main():
+    n = int(input().strip())
+    arr = list(map(int, input().strip().split()))
+    
+    
+    sorted_arr, numswap = bubble_sort(arr)
+
+    print(f"List is sorted in {numswap} swaps.")
+    print(f"First Element: {sorted_arr[0]}")
+    print(f"Last Element: {sorted_arr[-1]}")
+
+main()
